@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="sitename-container">
+
+    </div>
+    <script>
+
+        generateFooter(["Номер: +79000000000", "Эл. почта: example.gmail.com", "Адрес: г. Разработчик, ул. Подвальная, д.5"],
+                        "SiteName", "blue", "white");
+
+        function generateFooter(contacts, title, bgcolor, fontcolor){
+            if(Array.isArray(contacts)){
+                let footerHtml = "";
+                footerHtml = `
+                <footer style="color:${fontcolor}; background-color: ${bgcolor};">
+                    <div class="contacts-container">`;
+
+                for (const el of contacts) {
+                    footerHtml+=`
+                        <div class="contacts-line">
+                                ${el}
+                            </div>  
+                    `;
+                }
+                footerHtml+=`     
+                    </div>
+
+                    <div class="sitename-container">
+                        <h2>${title} &copy2000 г.;</h2>
+                    </div>
+
+                </footer>
+                    `;
+
+                document.write(footerHtml);
+            }
+        }
+    </script>
+</body>
+</html>
